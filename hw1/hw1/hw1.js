@@ -297,7 +297,7 @@ const Product = class Product {
         console.log(description);
       }
     });
-    //TESTING
+    //TESTING REPO AGAIN
 
     //console.log("apple_name_format: ", apple_name_format);
     //  console.log("products: ", products[0].name);
