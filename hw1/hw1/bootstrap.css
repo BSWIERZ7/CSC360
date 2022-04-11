@@ -107,6 +107,26 @@ nav {
   background-color: rgb(175, 175, 175);
 }
 
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: rgb(118, 122, 247);
+  color: white;
+  min-width: 50px;
+  text-align: center;
+
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.username,
+.password {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
 .form-container {
   width: 800px;
   /* margin: top/btm, left/right - auto adjust to page  */

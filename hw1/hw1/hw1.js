@@ -130,7 +130,7 @@ const Product = class Product {
     // let product_beef = products[3];
 
     const availableProducts = products.filter(
-      (element) => element.availability == "In Stock"
+      (element) => element.availability === "In Stock"
     );
     return availableProducts;
   };
@@ -147,58 +147,137 @@ const Product = class Product {
    * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
    */
   static halfOff = (products) => {
-    console.log("products", products);
-
-    // return products[0].price*0.50, products[0].price*0.50, products[0].price*0.50, products[0].price*0.50;
-
-    // products[0].price*0.50
-    // products[1].price*0.50
-    // products[2].price*0.50
-    // products[3].price*0.50
-
-    // products[0].price*0.50;
-    // products[1].price*0.50;
-    // products[2].price*0.50;
-    // products[3].price*0.50;
-
-    // let product_apple_discount = products[0].price*0.50;
-    // let product_carrot_discount = products[1].price*0.50;
-    // let product_bread_discount = products[2].price*0.50;
-    // let product_beef_discount = products[3].price*0.50;
-
-    // console.log("product_apple_discount: ", product_apple_discount);
-    // console.log("product_carrot_discount: ", product_carrot_discount);
-    // console.log("product_bread_discount: ", product_bread_discount);
-    // console.log("product_beef_discount: ", product_beef_discount);
-
-    const discountCheck = products.forEach((element) => {
-      products[0].price * 0.5;
-      this.name = Product.name;
-      // let half = Number(productArray[1])*0.50 //change '1.00' to 1
-      let half = Product.price; //change '1.00' to 1
-      this.price = half * 0.5;
-      this.availability = Product.availability;
-      // this.name = Product.name;
-      // this.price = Number(productArray[1])*0.50; //change '1.00' to 1
-      // this.availability = productArray[2];
-      //this.price = element.price*0.50;
-      console.log("inside forEach: ", element.price(element * 0.5));
+    const half_price = products.forEach((element) => {
+      element.name, element.price * 0.5, element.availability;
     });
 
-    return discountCheck;
+    return half_price;
+  };
+  // return half_price;
+  // return half_price;
 
-    // const discount = [product_apple_discount, product_carrot_discount, product_bread_discount];
-    // // const discountCheck = Product.forEach(element => element.price(element * 0.50));
-    // const discountCheck = Product.forEach(element => element.price(element * 0.50));
+  // console.log("products", products);
 
-    //  const discount = products.forEach(element => (element.price)*0.50)
-    //  const discount = products.forEach(element => (element.price)%2)
+  // console.log("products[0]: ", products[0]);
+  // console.log("products[0].price: ", products[0].price);
 
-    //  const discount = products.forEach(element => Number(element.price)*0.50)
-    // const discount = products.forEach(element => Number(element.price)*0.50)
-    //{
-    //carrot comes out 0 because original was .50 so = 0
-    /*
+  // products[0] = {
+  //   products[0].name;
+  //   products[0].price*0.50;
+  //   products[0].availability;
+  // };
+
+  // products[0] = products[0].price * 0.5;
+  // products[1].price * 0.5;
+  // products[2].price * 0.5;
+  // products[3].price * 0.5;
+
+  // console.log("AFTER: products[0].price: ", products[0].price);
+  // //const discountCheck = products.forEach((element) => {
+  // return products.forEach((element) => {
+  //let name =
+  // console.log("products = ", element.name);
+  // console.log("products = ", element.price * 0.5);
+  // console.log("products = ", element.availability);
+
+  // let product_name = element.name;
+  // let product_price = element.price * 0.5;
+  // let product_availability = element.availability;
+  // element.name;
+  // element.price * 0.5;
+  // element.availability;
+
+  // this.name = element.name;
+  // this.price = element.price * 0.5;
+  // this.availability = element.availability;
+
+  //element = { product_name, product_price, product_availability };
+  // element.price = element.price * 0.5;
+  // this.price = half * 0.5;
+  //   this.availability = element.availability;
+  //   // this.name = Product.name;
+  //   // this.price = Number(productArray[1])*0.50; //change '1.00' to 1
+  //   // this.availability = productArray[2];
+  //   //this.price = element.price*0.50;
+  //   console.log("inside forEach: ", element.price(element * 0.5));
+  // });
+  // return element;
+
+  // });
+
+  // return discountCheck;
+  // return (element = { product_name, product_price, product_availability });
+  // };
+  // const productsObject = JSON.parse(products);
+  // console.log("productsObject: ", productsObject);
+
+  // const discountCheck = products.forEach((product) => {
+  //   this.name = product.name;
+  //   this.price = product.price * 0.5;
+  //   this.availability = product.availability;
+
+  //   console.log("product_name: ", this.name);
+  //   console.log("product_price: ", this.price);
+  //   console.log("product_availability: ", this.availability);
+
+  // let product_name = product.name;
+  // // let price = product.price * 0.5;
+  // let product_price = product.price * 0.5;
+  // let product_availability = product.availability;
+
+  // console.log("product_name: ", this.product_name);
+  // console.log("product_price: ", this.product_price);
+  // console.log("product_availability: ", this.product_availability);
+
+  // return products[0].price*0.50, products[0].price*0.50, products[0].price*0.50, products[0].price*0.50;
+
+  // products[0].price*0.50
+  // products[1].price*0.50
+  // products[2].price*0.50
+  // products[3].price*0.50
+
+  // products[0].price*0.50;
+  // products[1].price*0.50;
+  // products[2].price*0.50;
+  // products[3].price*0.50;
+
+  // let product_apple_discount = products[0].price*0.50;
+  // let product_carrot_discount = products[1].price*0.50;
+  // let product_bread_discount = products[2].price*0.50;
+  // let product_beef_discount = products[3].price*0.50;
+
+  // console.log("product_apple_discount: ", product_apple_discount);
+  // console.log("product_carrot_discount: ", product_carrot_discount);
+  // console.log("product_bread_discount: ", product_bread_discount);
+  // console.log("product_beef_discount: ", product_beef_discount);
+
+  // const discountCheck = products.forEach((element) => {
+  //   element.price * 0.5;
+  //   let name = element.name;
+  //   let half = element.price * 0.5; //change '1.00' to 1
+  //   // this.price = half * 0.5;
+  //   this.availability = element.availability;
+  //   // this.name = Product.name;
+  //   // this.price = Number(productArray[1])*0.50; //change '1.00' to 1
+  //   // this.availability = productArray[2];
+  //   //this.price = element.price*0.50;
+  //   console.log("inside forEach: ", element.price(element * 0.5));
+  // });
+
+  // return discountCheck;
+
+  // const discount = [product_apple_discount, product_carrot_discount, product_bread_discount];
+  // // const discountCheck = Product.forEach(element => element.price(element * 0.50));
+  // const discountCheck = Product.forEach(element => element.price(element * 0.50));
+
+  //  const discount = products.forEach(element => (element.price)*0.50)
+  //  const discount = products.forEach(element => (element.price)%2)
+
+  //  const discount = products.forEach(element => Number(element.price)*0.50)
+  // const discount = products.forEach(element => Number(element.price)*0.50)
+  //{
+  //carrot comes out 0 because original was .50 so = 0
+  /*
         let product_apple_original = products[0]; 
         let product_carrot_original = products[1]; 
         let product_bread_original = products[2];
@@ -223,25 +302,25 @@ const Product = class Product {
         console.log("products[3].price*0.50", products[3].price*0.50);
 */
 
-    // element.price = parseFloat(element.price % 2);
-    // if(element.price == '1') element.price = 0.50;
-    // else
-    // element.price = (element.price * 0.50).toFixed(2);
-    // //console.log("discountFloat: ", discountFloat);
-    // console.log("productItem: ", element.price);
-    // console.log("element: ", element);
+  // element.price = parseFloat(element.price % 2);
+  // if(element.price == '1') element.price = 0.50;
+  // else
+  // element.price = (element.price * 0.50).toFixed(2);
+  // //console.log("discountFloat: ", discountFloat);
+  // console.log("productItem: ", element.price);
+  // console.log("element: ", element);
 
-    // console.log("element.price: ", element.price);
-    //}
-    // return discount;
+  // console.log("element.price: ", element.price);
+  //}
+  // return discount;
 
-    //)
-    // const discount = products.filter(element => element.price * 0.50;
-    //    console.log("element.price: ", element.price); )
-    // return discount;
-    // return discount;
-    //return discount;
-  };
+  //)
+  // const discount = products.filter(element => element.price * 0.50;
+  //    console.log("element.price: ", element.price); )
+  // return discount;
+  // return discount;
+  //return discount;
+  //};
   //array1.forEach(element => console.log(element.price));
 
   /*
