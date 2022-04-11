@@ -104,9 +104,6 @@ const Product = class Product {
     this.name = productArray[0];
     this.price = Number(productArray[1]); //change '1.00' to 1
     this.availability = productArray[2];
-    // console.log("*Name = ", this.name);
-    // console.log("*Price = ", this.price);
-    // console.log("*Availability = ", this.availability);
   }
 
   /**
@@ -146,188 +143,22 @@ const Product = class Product {
    * This method can also be written in one line; if doing so, consider using String interpolation when calling the product constructor
    * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
    */
+
   static halfOff = (products) => {
-    const half_price = products.forEach((element) => {
-      element.name, element.price * 0.5, element.availability;
+    const newProducts = products.map((element) => {
+      // element =
+      let name = element.name;
+      let price = element.price * 0.5;
+      let availability = element.availability;
+
+      element = { name, price, availability };
+
+      console.log("element.price: ", element);
+
+      return element;
     });
-
-    return half_price;
+    return newProducts;
   };
-  // return half_price;
-  // return half_price;
-
-  // console.log("products", products);
-
-  // console.log("products[0]: ", products[0]);
-  // console.log("products[0].price: ", products[0].price);
-
-  // products[0] = {
-  //   products[0].name;
-  //   products[0].price*0.50;
-  //   products[0].availability;
-  // };
-
-  // products[0] = products[0].price * 0.5;
-  // products[1].price * 0.5;
-  // products[2].price * 0.5;
-  // products[3].price * 0.5;
-
-  // console.log("AFTER: products[0].price: ", products[0].price);
-  // //const discountCheck = products.forEach((element) => {
-  // return products.forEach((element) => {
-  //let name =
-  // console.log("products = ", element.name);
-  // console.log("products = ", element.price * 0.5);
-  // console.log("products = ", element.availability);
-
-  // let product_name = element.name;
-  // let product_price = element.price * 0.5;
-  // let product_availability = element.availability;
-  // element.name;
-  // element.price * 0.5;
-  // element.availability;
-
-  // this.name = element.name;
-  // this.price = element.price * 0.5;
-  // this.availability = element.availability;
-
-  //element = { product_name, product_price, product_availability };
-  // element.price = element.price * 0.5;
-  // this.price = half * 0.5;
-  //   this.availability = element.availability;
-  //   // this.name = Product.name;
-  //   // this.price = Number(productArray[1])*0.50; //change '1.00' to 1
-  //   // this.availability = productArray[2];
-  //   //this.price = element.price*0.50;
-  //   console.log("inside forEach: ", element.price(element * 0.5));
-  // });
-  // return element;
-
-  // });
-
-  // return discountCheck;
-  // return (element = { product_name, product_price, product_availability });
-  // };
-  // const productsObject = JSON.parse(products);
-  // console.log("productsObject: ", productsObject);
-
-  // const discountCheck = products.forEach((product) => {
-  //   this.name = product.name;
-  //   this.price = product.price * 0.5;
-  //   this.availability = product.availability;
-
-  //   console.log("product_name: ", this.name);
-  //   console.log("product_price: ", this.price);
-  //   console.log("product_availability: ", this.availability);
-
-  // let product_name = product.name;
-  // // let price = product.price * 0.5;
-  // let product_price = product.price * 0.5;
-  // let product_availability = product.availability;
-
-  // console.log("product_name: ", this.product_name);
-  // console.log("product_price: ", this.product_price);
-  // console.log("product_availability: ", this.product_availability);
-
-  // return products[0].price*0.50, products[0].price*0.50, products[0].price*0.50, products[0].price*0.50;
-
-  // products[0].price*0.50
-  // products[1].price*0.50
-  // products[2].price*0.50
-  // products[3].price*0.50
-
-  // products[0].price*0.50;
-  // products[1].price*0.50;
-  // products[2].price*0.50;
-  // products[3].price*0.50;
-
-  // let product_apple_discount = products[0].price*0.50;
-  // let product_carrot_discount = products[1].price*0.50;
-  // let product_bread_discount = products[2].price*0.50;
-  // let product_beef_discount = products[3].price*0.50;
-
-  // console.log("product_apple_discount: ", product_apple_discount);
-  // console.log("product_carrot_discount: ", product_carrot_discount);
-  // console.log("product_bread_discount: ", product_bread_discount);
-  // console.log("product_beef_discount: ", product_beef_discount);
-
-  // const discountCheck = products.forEach((element) => {
-  //   element.price * 0.5;
-  //   let name = element.name;
-  //   let half = element.price * 0.5; //change '1.00' to 1
-  //   // this.price = half * 0.5;
-  //   this.availability = element.availability;
-  //   // this.name = Product.name;
-  //   // this.price = Number(productArray[1])*0.50; //change '1.00' to 1
-  //   // this.availability = productArray[2];
-  //   //this.price = element.price*0.50;
-  //   console.log("inside forEach: ", element.price(element * 0.5));
-  // });
-
-  // return discountCheck;
-
-  // const discount = [product_apple_discount, product_carrot_discount, product_bread_discount];
-  // // const discountCheck = Product.forEach(element => element.price(element * 0.50));
-  // const discountCheck = Product.forEach(element => element.price(element * 0.50));
-
-  //  const discount = products.forEach(element => (element.price)*0.50)
-  //  const discount = products.forEach(element => (element.price)%2)
-
-  //  const discount = products.forEach(element => Number(element.price)*0.50)
-  // const discount = products.forEach(element => Number(element.price)*0.50)
-  //{
-  //carrot comes out 0 because original was .50 so = 0
-  /*
-        let product_apple_original = products[0]; 
-        let product_carrot_original = products[1]; 
-        let product_bread_original = products[2];
-        let product_beef_original = products[3];
-
-        console.log("product_apple_original: ", products[0]);
-        console.log("product_carrot_original: ", products[1]);
-        console.log("product_bread_original: ", products[2]);
-        console.log("product_beef_original: ", products[3]);
-
-
-        console.log("test", hw1.inStock(products));
-        //element.price * 0.50;
-        let product_apple = products[0].price*0.50; 
-        let product_carrot = (products[1].price*0.50); 
-        let product_bread = products[2].price*0.50;
-        let product_beef = products[3].price*0.50;
-
-        console.log("products[0].price*0.50", products[0].price*0.50);
-        console.log("products[1].price*0.50", products[1].price*0.50);
-        console.log("products[2].price*0.50", products[2].price*0.50);
-        console.log("products[3].price*0.50", products[3].price*0.50);
-*/
-
-  // element.price = parseFloat(element.price % 2);
-  // if(element.price == '1') element.price = 0.50;
-  // else
-  // element.price = (element.price * 0.50).toFixed(2);
-  // //console.log("discountFloat: ", discountFloat);
-  // console.log("productItem: ", element.price);
-  // console.log("element: ", element);
-
-  // console.log("element.price: ", element.price);
-  //}
-  // return discount;
-
-  //)
-  // const discount = products.filter(element => element.price * 0.50;
-  //    console.log("element.price: ", element.price); )
-  // return discount;
-  // return discount;
-  //return discount;
-  //};
-  //array1.forEach(element => console.log(element.price));
-
-  /*
-  static inStock = (products) => {
-    const availableProducts = products.filter(element => element.availability == 'In Stock')
-    return availableProducts;
-  */
 
   /**
    * *****************
@@ -376,14 +207,6 @@ const Product = class Product {
         console.log(description);
       }
     });
-    //TESTING REPO AGAIN
-
-    //console.log("apple_name_format: ", apple_name_format);
-    //  console.log("products: ", products[0].name);
-    // console.log("products: ", products.price);
-    // console.log("products: ", products.availability);
-    //  console.log("products: ", products.name);
-    // console.log(products[0].name, products[0].price);
   };
 };
 
