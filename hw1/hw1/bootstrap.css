@@ -105,6 +105,7 @@ nav {
   margin: 0 10px;
   padding-left: 5px;
   /* to see box of navbar */
+  max-width: 90%;
   background-color: rgba(223, 223, 223, 0.918);
   border-color: #0d6efd;
   border-style: solid;
@@ -118,14 +119,17 @@ a:nth-child(3) {
 /* Style the form icons */
 .icon {
   padding: 10px;
-  background: rgb(118, 122, 247);
+  background: rgba(223, 223, 223, 0.918);
   color: white;
   min-width: 50px;
   text-align: center;
 
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  color: rgb(109, 109, 109);
+  background-color: rgba(208, 207, 207, 0.918);
+  /* border-color: rgba(211, 13, 13, 0.918);
+  border-style: 5px solid red; */
+  border-width: thin;
+  border: 1px solid rgb(147, 147, 147);
 }
 
 .username,
