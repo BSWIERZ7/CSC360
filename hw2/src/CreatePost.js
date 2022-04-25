@@ -43,13 +43,12 @@ export default function CreatePost({ user, setPosts, posts }) {
         <textarea value={content} onChange={handleContent} />
         <input type="submit" value="Create" disabled={title.length === 0} />
 
-        {/* <h1>Posted Date:</h1>
+        {/* <h1>Posted Date:</h1> */}
         <p id="date"></p>
         <script>
-          // var date_current = new Date(); //
-          document.getElementById("date").innerHTML = date_current.getDate();
-          document.getElementById("date").innerHTML = Date();
-        </script> */}
+          {/* document.getElementById("date").innerHTML = date_current.getDate(); */}
+          {/* document.getElementById("date").innerHTML = Date(); */}
+        </script>
       </form>
     </>
   );

@@ -9,6 +9,19 @@ export default function Todo({ title, content, author }) {
       <i>
         Written by <b>{author}</b>
       </i>
+
+      <div>
+        <h3>Posted Date:</h3>
+        {/* <div></div> */}
+        <p id="date"></p>
+        <script>
+          {
+            //  document.getElementById("date").innerHTML = date_current.getDate();
+            (document.getElementById("date").innerHTML = Date())
+            // date.now()
+          }
+        </script>
+      </div>
     </div>
   );
 }
