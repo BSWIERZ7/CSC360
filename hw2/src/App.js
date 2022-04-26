@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import UserBar from "./UserBar";
 import PostList from "./TodoList";
 import CreatePost from "./CreatePost";
+import CheckBoxForm from "./CheckBoxForm";
 // import DateTime from "./Datetime";
 
 function App() {
   const [user, setUser] = useState("");
   // const posts = [{title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}, {title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}]
   //const posts = [{title: 'A Blog Post', content: 'Blog post content', author: 'Paul'}]
-
+  const [checked, setChecked] = useState(false);
   const [posts, setPosts] = useState([]);
   return (
     <div>
       <UserBar user={user} setUser={setUser} />
       {user && <CreatePost user={user} posts={posts} setPosts={setPosts} />}
       <PostList posts={posts} />
+      {/* <CheckBoxForm checked={checked} setChecked {...setChecked} /> */}
+      {/* <CheckBoxForm /> */}
     </div>
   );
 }
