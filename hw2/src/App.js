@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import UserBar from "./UserBar";
-import PostList from "./TodoList";
+import PostList from "./PostList";
 import CreatePost from "./CreatePost";
-import CheckBoxForm from "./CheckBoxForm";
-// import DateTime from "./Datetime";
 
 function App() {
   const [user, setUser] = useState("");
@@ -15,9 +13,7 @@ function App() {
     <div>
       <UserBar user={user} setUser={setUser} />
       {user && <CreatePost user={user} posts={posts} setPosts={setPosts} />}
-      <PostList posts={posts} />
-      {/* <CheckBoxForm checked={checked} setChecked {...setChecked} /> */}
-      {/* <CheckBoxForm /> */}
+      <PostList posts={posts} setPosts={setPosts} />
     </div>
   );
 }

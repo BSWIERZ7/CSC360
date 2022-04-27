@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import CheckBoxForm from "./CheckBoxForm";
 
 export default function CreatePost({ user, setPosts, posts }) {
   const [title, setTitle] = useState(""); //holds title variable
@@ -12,15 +11,18 @@ export default function CreatePost({ user, setPosts, posts }) {
     setContent(evt.target.value);
   }
   function handleCreate(evt) {
-    const newPost = { title, content, author: user };
+    const newPost = {
+      title,
+      content,
+      author: user,
+      dateCreated: Date.now(),
+      dateCompleted: null,
+      complete: false,
+    };
     //console.log(newPost)
     // const newPostCopy = { ...newPost }
     setPosts([newPost, ...posts]);
   }
-
-  // handleCheckBoxForm(evt) {
-  //     const complete = false;
-  // }
 
   return (
     <>
@@ -47,27 +49,7 @@ export default function CreatePost({ user, setPosts, posts }) {
         <label>Description: </label>
         <textarea value={content} onChange={handleContent} />
         <input type="submit" value="Create" disabled={title.length === 0} />
-
-        <CheckBoxForm />
-        <h3>Posted Date:</h3>
-        <p id="date"></p>
-        <script>
-          {/* document.getElementById("date").innerHTML = date_current.getDate(); */}
-          document.getElementById("date").innerHTML = Date();
-        </script>
       </form>
     </>
   );
-}
-
-{
-  /* <input
-        type="submit"
-        value="Register"
-        disabled={
-          formData.username.length === 0 ||
-          formData.password.length === 0 ||
-          formData.password !== formData.passwordRepeat
-        }
-      /> */
 }
