@@ -8,7 +8,7 @@ import { useState } from "react";
 // };
 //testing
 
-export default function PostList({ posts = [], dispatch }) {
+export default function PostList({ posts = [], dispatch, updatePost }) {
   const [id, setId] = useState(0);
 
   function handleDelete(id) {
@@ -25,10 +25,16 @@ export default function PostList({ posts = [], dispatch }) {
     const togglePost = posts.filter((post) => id === post.id);
     console.log("togglePosts = ", togglePost);
     const newPost = {
-      title: togglePost.title,
-      content: togglePost.content,
-      author: togglePost.author,
-      dateCreated: togglePost.dateCreated,
+      // title: togglePost.title,
+      // content: togglePost.content,
+      // author: togglePost.author,
+      // dateCreated: togglePost.dateCreated,
+      // dateCompleted: Date.now(),
+      // completed: id.target.checked,
+      title,
+      content,
+      author,
+      dateCreated,
       dateCompleted: Date.now(),
       completed: id.target.checked,
     };

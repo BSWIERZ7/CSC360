@@ -30,6 +30,7 @@ export default function Post({
 
     updatePost(index, newPost);
   }
+  // eslint-disable-next-line no-lone-blocks
   {
     return (
       <div>
@@ -50,6 +51,7 @@ export default function Post({
         {/* Date Completed: {dateCompleted} 
         Have complete button give output of (Date.now()) when clicked, find it by using post's ID*/}
         Date Completed: {Date.now()}
+        <input type="checkbox" value={complete} onChange={handleToggle} />
         {/* Date Completed: handleToggle returns => {Date.now()} */}
         <br />
         Post ID: {id}
@@ -62,8 +64,7 @@ export default function Post({
           <button
             key={Post.id}
             value={id}
-            // onClick={() => handleToggle(id)}
-            onClick={(complete) => Date.now()}
+            onClick={() => handleToggle(id)}
             // onChange={(complete) => Date.now()}
           >
             Completed
