@@ -33,11 +33,11 @@ function postReducer(state, action) {
       //   //   //   // implement logic for deleting post
       console.log("inside delete Post");
       // const newPostList = state.filter((post) => post.id != action.id);
-      const newPostList = state.filter((post) => post.id !== action.id);
+      ///const newPostList = state.filter((post) => post.id !== action.id);
       // const newPostList = state.filter((post) => post.id !== action.payload);
 
       // return state.filter((post, id) => post.id != action.id;
-      return newPostList;
+      return action.newPostList;
 
     //we return ALL posts with IDs that are NOT this particular post.id that is to be deleted/avoided
     // return state.filter((posts) => posts.id !== action.id);

@@ -65,7 +65,7 @@ function App() {
       {state.user && (
         <CreatePost user={state.user} posts={state.posts} dispatch={dispatch} />
       )}
-      <PostList posts={state.posts} />
+      <PostList posts={state.posts} dispatch={dispatch} />
     </div>
   );
 }

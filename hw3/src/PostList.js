@@ -12,11 +12,12 @@ export default function PostList({ posts = [], dispatch }) {
   const [id, setId] = useState(0);
 
   function handleDelete(id) {
+    const newPostList = posts.filter((post) => id !== post.id);
     //sending a parameter that is an object, this case we pass it the follwing:
     console.log("testing");
     console.log("inside handleDelete");
     // dispatch(postReducer({ type: "DELETE_POST", id: id }));
-    dispatch({ type: "DELETE_POST", id: id });
+    dispatch({ type: "DELETE_POST", newPostList });
     // dispatch({ type: "DELETE_POST" });
     // dispatch(postReducer({ type: "DELETE_POST", id: id }));
   }
@@ -37,6 +38,7 @@ export default function PostList({ posts = [], dispatch }) {
             key={"post-" + i}
             // id={handleId}
             id={p.id}
+            handleDelete={handleDelete}
           />
         ))
         // <button onClick={handleDelete}>Delete</button>

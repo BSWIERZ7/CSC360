@@ -13,6 +13,7 @@ export default function Post({
   index,
   id,
   dispatch,
+  handleDelete,
 }) {
   // function handleCheckbox(event) {
   //   console.log("checkbox clicked"); //check inside console to see if event is firing and event is invoked
@@ -29,14 +30,14 @@ export default function Post({
   //   updatePost(index, newPost);
   // }
 
-  function handleDelete(id) {
-    console.log("delete button clicked"); //check inside console to
-    // posts: postReducer(state.post, action);
-    // postReducer(dispatch({ type: "DELETE_POST", id: id }));
-    // postReducer(dispatch({ type: "DELETE_POST", id: id }));
-    // dispatch({ type: "DELETE_POST", id: id });
-    dispatch(postReducer({ type: "DELETE_POST", id }));
-  }
+  // function handleDelete(id) {
+  //   console.log("delete button clicked"); //check inside console to
+  //   // posts: postReducer(state.post, action);
+  //   // postReducer(dispatch({ type: "DELETE_POST", id: id }));
+  //   // postReducer(dispatch({ type: "DELETE_POST", id: id }));
+  //   // dispatch({ type: "DELETE_POST", id: id });
+  //   dispatch(postReducer({ type: "DELETE_POST", id }));
+  // }
 
   {
     return (
@@ -82,11 +83,7 @@ export default function Post({
           </button>
         </div> */}
         <div>
-          <button
-            key={Post.id}
-            value={id}
-            onClick={() => handleDelete(Post.id)}
-          >
+          <button key={Post.id} value={id} onClick={() => handleDelete(id)}>
             Delete Post
           </button>
         </div>
