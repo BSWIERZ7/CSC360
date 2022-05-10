@@ -13,13 +13,31 @@ export default function PostList({ posts = [], dispatch }) {
 
   function handleDelete(id) {
     const newPostList = posts.filter((post) => id !== post.id);
-    //sending a parameter that is an object, this case we pass it the follwing:
-    console.log("testing");
-    console.log("inside handleDelete");
-    // dispatch(postReducer({ type: "DELETE_POST", id: id }));
+    //sending a parameter that is an object(newPostList), this case we pass it the follwing:
+    console.log("PostList: inside handleDelete");
     dispatch({ type: "DELETE_POST", newPostList });
+    console.log("PostList: Post has been deleted.");
     // dispatch({ type: "DELETE_POST" });
     // dispatch(postReducer({ type: "DELETE_POST", id: id }));
+  }
+
+  function handleToggle(id) {
+    const togglePost = posts.filter((post) => id === post.id);
+    console.log("togglePosts = ", togglePost);
+    const newPost = {
+      title: togglePost.title,
+      content: togglePost.content,
+      author: togglePost.author,
+      dateCreated: togglePost.dateCreated,
+      dateCompleted: Date.now(),
+      completed: id.target.checked,
+    };
+    console.log("newPost = ", newPost);
+    updatePost(index, newPost);
+    // updatePost(id, newPost);
+
+    console.log("PostList: inside handleToggle");
+    dispatch({ type: "TOGGLE_POST", newPost });
   }
 
   function handleId(id) {
@@ -39,15 +57,11 @@ export default function PostList({ posts = [], dispatch }) {
             // id={handleId}
             id={p.id}
             handleDelete={handleDelete}
+            handleToggle={handleToggle}
           />
         ))
         // <button onClick={handleDelete}>Delete</button>
       }
-      {/* <div>Hello</div> */}
-      {/* <button onClick={() => handleDelete}>Delete</button> */}
-      {/* <span>
-        <button onClick={dispatch({ type: "DELETE_POST" })}>Delete</button>
-      </span> */}
     </div>
   );
 }

@@ -14,31 +14,22 @@ export default function Post({
   id,
   dispatch,
   handleDelete,
+  handleToggle,
 }) {
-  // function handleCheckbox(event) {
-  //   console.log("checkbox clicked"); //check inside console to see if event is firing and event is invoked
+  function handleCheckbox(event) {
+    console.log("checkbox clicked"); //check inside console to see if event is firing and event is invoked
 
-  //   const newPost = {
-  //     title,
-  //     content,
-  //     author,
-  //     dateCreated,
-  //     dateCompleted: Date.now(),
-  //     completed: event.target.checked,
-  //   };
+    const newPost = {
+      title,
+      content,
+      author,
+      dateCreated,
+      dateCompleted: Date.now(),
+      completed: event.target.checked,
+    };
 
-  //   updatePost(index, newPost);
-  // }
-
-  // function handleDelete(id) {
-  //   console.log("delete button clicked"); //check inside console to
-  //   // posts: postReducer(state.post, action);
-  //   // postReducer(dispatch({ type: "DELETE_POST", id: id }));
-  //   // postReducer(dispatch({ type: "DELETE_POST", id: id }));
-  //   // dispatch({ type: "DELETE_POST", id: id });
-  //   dispatch(postReducer({ type: "DELETE_POST", id }));
-  // }
-
+    updatePost(index, newPost);
+  }
   {
     return (
       <div>
@@ -50,66 +41,35 @@ export default function Post({
         </i>
         <br />
         Completed: {complete}
+        <input type="checkbox" value={complete} onChange={complete} />
+        {/*Our complete toggle here*/}
         <br />
-        Date Created: {dateCreated}
+        {/* Date Created: {dateCreated} */}
+        Date Created: {Date.now()}
         <br />
-        Date Completed: {dateCompleted}
-        {/* <br />
-        Post ID: {id} */}
+        {/* Date Completed: {dateCompleted} 
+        Have complete button give output of (Date.now()) when clicked, find it by using post's ID*/}
+        Date Completed: {Date.now()}
+        {/* Date Completed: handleToggle returns => {Date.now()} */}
         <br />
         Post ID: {id}
-        {/* <input type="checkbox" value={complete} onChange={handleCheckbox} /> */}
-        {/* <input type="checkbox" value={DELETE_POST} onchange={} /> */}
-        {/* <input type="checkbox" dispatch={type: "DELETE_POST"} /> */}
-        {/* <div>
-          <button onClick={() => handleDelete({ TYPE: "DELETE_POST" })}>
-            Delete Post
-          </button>
-        </div> */}
-        {/* <div>
-          <button onClick={() => handleDelete}>Delete Post</button>
-        </div> */}
-        {/* <div>
-          <button onClick={dispatch({ type: "DELETE_POST" })}>
-            Delete Post
-          </button>
-        </div> */}
-        {/* <div>
-          <button
-            key={Post.id}
-            onClick={() => dispatch({ type: "DELETE_POST", id: id })}
-          >
-            Delete Post
-          </button>
-        </div> */}
         <div>
           <button key={Post.id} value={id} onClick={() => handleDelete(id)}>
             Delete Post
           </button>
         </div>
-        {/* <div>
-          <button key={Post.id} onClick={() => handleDelete(Post.id)}>
-            Delete Post
+        <div>
+          <button
+            key={Post.id}
+            value={id}
+            // onClick={() => handleToggle(id)}
+            onClick={(complete) => Date.now()}
+            // onChange={(complete) => Date.now()}
+          >
+            Completed
           </button>
-        </div> */}
+        </div>
       </div>
     );
   }
 }
-
-//============================================================================================
-//This is the previous setup used for HW3 - May need to change to this
-
-// export default function Post({ title, content, author }) {
-
-//   return (
-//     <div>
-//       <h3>{title}</h3>
-//       <div>{content}</div>
-//       <br />
-//       <i>
-//         Written by <b>{author}</b>
-//       </i>
-//     </div>
-//   );
-// }

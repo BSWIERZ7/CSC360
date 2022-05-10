@@ -53,10 +53,6 @@ export default function CreatePost({ user, dispatch, posts }) {
         </div>
         <label html="create-content">Content: </label>
         <textarea value={content} onChange={handleContent} />
-        {/* <textarea value={id} onChange={handleId} /> */}
-
-        {/* <textarea type="text" value={id} onChange={handleId} /> */}
-        {/* <textarea value={id} /> Added this to test id */}
         <br />
         <label html="create-id">Id: </label>
         <input type="text" value={id} onChange={handleId} />
