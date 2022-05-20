@@ -1,4 +1,5 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
+import { useResource } from "react-request-hook";
 import UserBar from "./UserBar";
 import PostList from "./PostList";
 import CreatePost from "./CreatePost";
