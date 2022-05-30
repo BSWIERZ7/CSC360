@@ -1,65 +1,44 @@
 import React from "react";
-import { useState } from "react";
+import { Link } from "react-navi";
 
-export default function Post({
-  title,
-  content,
-  author,
-  dateCreated,
-  dateCompleted,
-  completed,
-  id,
-  updatePost,
-  deletePost,
-}) {
-  //maintain the state of the checkbox
-  const [checked, updateChecked] = useState(false);
+function Post({ title, content, author, id, short = false }) {
+  let processedContent = content;
 
-  //handles our ToggleTodo
-  const handleToggleEvent = (event) => {
-    console.log("in handleToggle");
-    updateChecked(event.target.checked);
-
-    //update post call with 2 parameters, 1 is ID of post I want to update
-    //2nd is the UPDATED OBJECT, essentially declaring an object literal containing title, content, author, dataCreated, etc. Once
-    //we get to the dateCompleted, we set the Date to Date.now()
-    //when we get to completed, we set it to its inverse of completed.
-    const updatedPost = {
-      title,
-      content,
-      author,
-      dateCreated,
-      id,
-      dateCompleted: Date.now(),
-      completed: !completed,
-    };
-    console.log("updatedPost:", updatedPost);
-    updatePost(id, updatedPost);
-  };
-
-  {
-    return (
-      <div>
-        <h3>{title}</h3>
-        <div>{content}</div>
-        <br />
-        <i>
-          Written by <b>{author}</b>
-        </i>
-        <div>Date Created: {new Date(dateCreated).toDateString()}</div>
-        <div>
-          Date Completed:{" "}
-          {completed
-            ? new Date(dateCompleted).toDateString()
-            : "Not yet completed"}
-        </div>
-        <input type="checkbox" value={checked} onClick={handleToggleEvent} />
-        <input
-          type="button"
-          value="Delete this post"
-          onClick={() => deletePost(id)}
-        />
-      </div>
-    );
+  if (short) {
+    if (content.length > 30) {
+      processedContent = content.substring(0, 30) + "...";
+    }
   }
+
+  return (
+    <div>
+      <Link href={`/post/${id}`}>
+        <h3>{title}</h3>
+      </Link>
+
+      <div>{processedContent}</div>
+      <br />
+      <i>
+        Written by <b>{author}</b>
+      </i>
+      {short && (
+        <div>
+          <br />
+          <Link href={`/post/${id}`}>View full post</Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
+//This export with memoization allows us to not have to re-render this component; performance increase if certain component is re-rendered dozens of times in a big-scale program.
+export default React.memo(Post);
+
+{
+  /* 
+To Achieve a link, we do the below inside our return:
+This also creates each title as a blue hyperlink text, we can click on these and IF the id is linked, then it will display when clicked. If ID is not defined for this post then we will see "Loading..." when we click on post link text.
+<Link href={`/post/${id}`}>View full post</Link>
+ 
+*/
 }

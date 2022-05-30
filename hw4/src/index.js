@@ -1,32 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { RequestProvider } from "react-request-hook";
 import axios from "axios";
+
 import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+//const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000/api/",
 });
 
-root.render(
+//switching to port 4000
+// const axiosInstance = axios.create({
+//   baseURL: "http://localhost:4000/api/",
+// });
+
+ReactDOM.render(
   <React.StrictMode>
     <RequestProvider value={axiosInstance}>
       <App />
     </RequestProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-/*PREVIOUS VERSION
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-*/

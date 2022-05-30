@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useResource } from "react-request-hook";
+import { useNavigation } from "react-navi";
 
-export default function CreatePost({ user, dispatch, posts }) {
+import StateContext from "./Context";
+
+export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [id, setId] = useState(0);
+
+  const navigation = useNavigation();
+
+  const { state, dispatch } = useContext(StateContext);
+  const { user } = state;
 
   function handleTitle(evt) {
     setTitle(evt.target.value);
@@ -12,31 +20,28 @@ export default function CreatePost({ user, dispatch, posts }) {
     setContent(evt.target.value);
   }
 
-  function handleId(id) {
-    setId(id.target.value);
-  }
+  //5. Use the useResource hook in order to issue a POST request to the mock API in order to persist your Todo to db.json
+  const [post, createPost] = useResource(({ title, content, author }) => ({
+    url: "/posts",
+    method: "post",
+    data: { title, content, author },
+  }));
+
+  useEffect(() => {
+    //post.data gives undefined
+    if (post && post.data && post.isLoading === false) {
+      navigation.navigate(`/post/${post.data.id}`);
+    }
+  }, [post]);
+
   function handleCreate(evt) {
     //const newPost = { title, content, author: user, dateCreated: Date.now(), dateCompleted: null, complete: false }
     //console.log(newPost)
     // const newPostCopy = { ...newPost }
     //setPosts([newPost, ...posts])
-
-    //sending a parameter that is an object, this case we pass it the follwing:
-    dispatch({
-      type: "CREATE_POST",
-      title,
-      content,
-      author: user,
-      dateCreated: Date.now(),
-      dateCompleted: undefined,
-      completed: false,
-      id: Math.floor(Math.random() * 1000000),
-    });
+    createPost({ title, content, author: user });
+    dispatch({ type: "CREATE_POST", title, content, author: user });
   }
-
-  // function handleDelete(evt) {
-  //   dispatch({ type: "DELETE_POST", title, content, author: user});
-  // }
 
   return (
     <>
