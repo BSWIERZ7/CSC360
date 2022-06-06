@@ -4,6 +4,7 @@ import { Link } from "react-navi";
 function Post({ title, content, author, id, short = false }) {
   let processedContent = content;
 
+  //displays a shortened version of content
   if (short) {
     if (content.length > 30) {
       processedContent = content.substring(0, 30) + "...";

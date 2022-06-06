@@ -81,7 +81,7 @@ function App() {
         <HeaderBar />
         <HomePage />
         {/* we are passing this id to test it in blog(when we run it with npm start) */}
-        {/* <PostPage id="37ARwUf" /> */}
+        <PostPage id="37ARwUf" />
         <View />
       </StateContext.Provider>
     </Router>

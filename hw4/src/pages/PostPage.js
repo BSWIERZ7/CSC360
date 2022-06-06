@@ -8,6 +8,7 @@ import Post from "../Post";
 export default function PostPage({ id }) {
   // const {state, dispatch} = useContext(StateContext)
 
+  //grabs a specific post we want to see
   const [post, getPost] = useResource(() => ({
     url: `/posts/${id}`,
     method: "get",
