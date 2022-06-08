@@ -22,7 +22,16 @@ export default function CreatePost({ user, dispatch, posts }) {
     //setPosts([newPost, ...posts])
 
     //sending a parameter that is an object, this case we pass it the follwing:
-    dispatch({ type: "CREATE_POST", title, content, author: user, id: id });
+    dispatch({
+      type: "CREATE_POST",
+      title,
+      content,
+      author: user,
+      dateCreated: Date.now(),
+      dateCompleted: undefined,
+      completed: false,
+      id: Math.floor(Math.random() * 1000000),
+    });
   }
 
   // function handleDelete(evt) {
@@ -51,12 +60,8 @@ export default function CreatePost({ user, dispatch, posts }) {
             id="create-title"
           />
         </div>
-        <label html="create-content">Content: </label>
         <textarea value={content} onChange={handleContent} />
-        <br />
-        <label html="create-id">Id: </label>
-        <input type="text" value={id} onChange={handleId} />
-        <input type="submit" value="Create" onClick={() => setId(id + 1)} />
+        <input type="submit" value="Create" />
       </form>
     </>
   );

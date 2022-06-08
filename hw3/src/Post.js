@@ -1,6 +1,5 @@
 import React from "react";
-import appReducer from "./reducers";
-import postReducer from "./reducers";
+import { useState } from "react";
 
 export default function Post({
   title,
@@ -8,29 +7,36 @@ export default function Post({
   author,
   dateCreated,
   dateCompleted,
-  complete,
-  updatePost,
-  index,
+  completed,
   id,
-  dispatch,
-  handleDelete,
-  handleToggle,
+  updatePost,
+  deletePost,
 }) {
-  function handleCheckbox(event) {
-    console.log("checkbox clicked"); //check inside console to see if event is firing and event is invoked
+  //maintain the state of the checkbox
+  const [checked, updateChecked] = useState(false);
 
-    const newPost = {
+  //handles our ToggleTodo
+  const handleToggleEvent = (event) => {
+    console.log("in handleToggle");
+    updateChecked(event.target.checked);
+
+    //update post call with 2 parameters, 1 is ID of post I want to update
+    //2nd is the UPDATED OBJECT, essentially declaring an object literal containing title, content, author, dataCreated, etc. Once
+    //we get to the dateCompleted, we set the Date to Date.now()
+    //when we get to completed, we set it to its inverse of completed.
+    const updatedPost = {
       title,
       content,
       author,
       dateCreated,
+      id,
       dateCompleted: Date.now(),
-      completed: event.target.checked,
+      completed: !completed,
     };
+    console.log("updatedPost:", updatedPost);
+    updatePost(id, updatedPost);
+  };
 
-    updatePost(index, newPost);
-  }
-  // eslint-disable-next-line no-lone-blocks
   {
     return (
       <div>
@@ -40,36 +46,19 @@ export default function Post({
         <i>
           Written by <b>{author}</b>
         </i>
-        <br />
-        Completed: {complete}
-        <input type="checkbox" value={complete} onChange={complete} />
-        {/*Our complete toggle here*/}
-        <br />
-        {/* Date Created: {dateCreated} */}
-        Date Created: {Date.now()}
-        <br />
-        {/* Date Completed: {dateCompleted} 
-        Have complete button give output of (Date.now()) when clicked, find it by using post's ID*/}
-        Date Completed: {Date.now()}
-        <input type="checkbox" value={complete} onChange={handleToggle} />
-        {/* Date Completed: handleToggle returns => {Date.now()} */}
-        <br />
-        Post ID: {id}
+        <div>Date Created: {new Date(dateCreated).toDateString()}</div>
         <div>
-          <button key={Post.id} value={id} onClick={() => handleDelete(id)}>
-            Delete Post
-          </button>
+          Date Completed:{" "}
+          {completed
+            ? new Date(dateCompleted).toDateString()
+            : "Not yet completed"}
         </div>
-        <div>
-          <button
-            key={Post.id}
-            value={id}
-            onClick={() => handleToggle(id)}
-            // onChange={(complete) => Date.now()}
-          >
-            Completed
-          </button>
-        </div>
+        <input type="checkbox" value={checked} onClick={handleToggleEvent} />
+        <input
+          type="button"
+          value="Delete this post"
+          onClick={() => deletePost(id)}
+        />
       </div>
     );
   }

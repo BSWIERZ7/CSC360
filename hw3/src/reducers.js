@@ -21,28 +21,17 @@ function postReducer(state, action) {
         title: action.title,
         content: action.content,
         author: action.author,
+        dateCreated: action.dateCreated,
+        dateCompleted: action.dateCompleted,
+        completed: action.completed,
         id: action.id,
       };
       //UPDATES our state
       return [newPost, ...state];
 
-    //----previous version before changes------------
-    // case "CREATE_POST":
-    //   console.log("in postReducer: Creating Post");
-    //   //newPost is taking in THREE PIECES OF DATA
-    //   const newPost = {
-    //     title: action.title,
-    //     content: action.content,
-    //     author: action.author,
-    //     id: action.id,
-    //   };
-    //   //UPDATES our state
-    //   return [newPost, ...state];
-    //-----------------------
-
     case "TOGGLE_POST":
-      console.log("PostReducer: TOGGLE_POST has been dispatched");
-      return action.newPost;
+      console.log("PostReducer: in toggle reducer");
+      return action.updatedPosts;
     //Its going to take a previous 'state' from the passed in
     //parameter, will copy it into a new array and, prepend
     //the new post object in a newly created Array that is RETURNED
@@ -51,7 +40,7 @@ function postReducer(state, action) {
       //   //   //   // implement logic for deleting post
       console.log("PostReducer: DELETE_POST has been dispatched");
 
-      return action.newPostList;
+      return action.updatedPosts;
 
     //we return ALL posts with IDs that are NOT this particular post.id that is to be deleted/avoided
     // return state.filter((posts) => posts.id !== action.id);
